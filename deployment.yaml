@@ -7,14 +7,14 @@ spec:
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: guestbook-ui
+      app: negis-develop
   template:
     metadata:
       labels:
-        app: guestbook-ui
+        app: negis-develop
     spec:
       containers:
-      - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
-        name: guestbook-ui
+      - image: negis:latest
+        name: negis-develop
         ports:
         - containerPort: 80
