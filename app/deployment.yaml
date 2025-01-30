@@ -16,5 +16,6 @@ spec:
       containers:
       - image: negis:latest
         name: negis-develop
+        imagePullPolicy: Never
         ports:
         - containerPort: 80
