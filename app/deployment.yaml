@@ -1,1 +1,20 @@
-aa
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: negis-develop
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: negis-develop
+  template:
+    metadata:
+      labels:
+        app: negis-develop
+    spec:
+      containers:
+      - image: negis:latest
+        name: negis-develop
+        ports:
+        - containerPort: 80
