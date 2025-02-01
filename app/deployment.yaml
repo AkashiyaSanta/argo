@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/AkashiyaSanta/argo.git'
     targetRevision: HEAD
-    path: .  # Directory where child app manifests are stored
+    path: apps  # Directory where child app manifests are stored
   destination:
     server: https://kubernetes.default.svc
     namespace: negi
