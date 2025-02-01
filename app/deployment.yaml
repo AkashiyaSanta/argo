@@ -1,21 +1,17 @@
-apiVersion: apps/v1
-kind: Deployment
+kind: Application
 metadata:
-  name: negis-develop
+  name: app-of-apps
+  namespace: argocd
 spec:
-  replicas: 1
-  revisionHistoryLimit: 3
-  selector:
-    matchLabels:
-      app: negis-develop
-  template:
-    metadata:
-      labels:
-        app: negis-develop
-    spec:
-      containers:
-      - image: negis:latest
-        name: negis-develop
-        imagePullPolicy: Never
-        ports:
-        - containerPort: 80
+  project: default
+  source:
+    repoURL: 'https://github.com/your-org/your-repo.git'
+    targetRevision: HEAD
+    path: apps  # Directory where child app manifests are stored
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
