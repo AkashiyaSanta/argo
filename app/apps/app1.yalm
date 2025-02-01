@@ -1,17 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
-kind: Application
+kind: Deployment
 metadata:
-  name: app1
-  namespace: negi
+  name: negis-develop
 spec:
-  project: default
-  source:
-    repoURL: 'https://github.com/AkashiyaSanta/argo.git'
-    targetRevision: HEAD
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: negi
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: negis-develop
+  template:
+    metadata:
+      labels:
+        app: negis-develop
+    spec:
+      containers:
+      - image: negis:latest
+        name: negis-develop
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
