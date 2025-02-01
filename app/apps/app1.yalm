@@ -1,21 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
-kind: Deployment
+kind: Application
 metadata:
-  name: negis-develop
+  name: app1
+  namespace: argocd
 spec:
-  replicas: 1
-  revisionHistoryLimit: 3
-  selector:
-    matchLabels:
-      app: negis-develop
-  template:
-    metadata:
-      labels:
-        app: negis-develop
-    spec:
-      containers:
-      - image: negis:latest
-        name: negis-develop
-        imagePullPolicy: Never
-        ports:
-        - containerPort: 80
+  project: default
+  source:
+    repoURL: https://github.com/myrepo/k8s-manifests.git
+    targetRevision: HEAD
+    path: apps/app1  # アプリ1のマニフェストがあるディレクトリ
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: app1-ns
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
