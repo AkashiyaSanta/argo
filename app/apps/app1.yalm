@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/AkashiyaSanta/argo.git'
     targetRevision: HEAD
-    path: apps/app1  # アプリ1のマニフェストがあるディレクトリ
+    path: apps
   destination:
     server: https://kubernetes.default.svc
     namespace: negi
