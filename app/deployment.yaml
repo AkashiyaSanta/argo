@@ -5,9 +5,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/your-org/your-repo.git'
+    repoURL: 'https://github.com/AkashiyaSanta/argo.git'
     targetRevision: HEAD
-    path: apps  # Directory where child app manifests are stored
+    path: .  # Directory where child app manifests are stored
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
