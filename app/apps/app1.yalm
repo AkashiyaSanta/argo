@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/myrepo/k8s-manifests.git
+    repoURL: 'https://github.com/AkashiyaSanta/argo.git'
     targetRevision: HEAD
     path: apps/app1  # アプリ1のマニフェストがあるディレクトリ
   destination:
