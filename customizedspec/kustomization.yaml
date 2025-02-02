@@ -4,5 +4,5 @@ resources:
   - https://github.com/AkashiyaSanta/argoAppOne.git//base?ref=main
   - https://github.com/AkashiyaSanta/argoAppTwo.git//base?ref=main
 
-patchesStrategicMerge:
-  - sync-wave.yaml
+patches:
+  - path: sync-wave.yaml
