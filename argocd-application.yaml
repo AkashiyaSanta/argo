@@ -5,6 +5,7 @@ metadata:
   namespace: argocd
 spec:
   source:
+    project: negi
     repoURL: https://github.com/AkashiyaSanta/argo.git
     targetRevision: main
     path: customizedspec
