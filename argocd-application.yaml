@@ -1,16 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kustomized-app
+  name: kustomizedapplication
+  namespace: argocd
 spec:
-  destination:
-    namespace: negi
-    server: https://kubernetes.default.svc
-  project: negi
   source:
     repoURL: https://github.com/AkashiyaSanta/argo.git
+    targetRevision: main
     path: customizedspec
-    targetRevision: HEAD
+    directory:
+      recurse: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: negi
   syncPolicy:
     automated:
       prune: true
