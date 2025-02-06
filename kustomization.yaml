@@ -4,5 +4,3 @@ kind: Kustomization
 resources:
   - repo1
   - repo2
-  - repo1
-  - repo2
