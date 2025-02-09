@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - repo1
   - repo2
+  - namespaces.yaml
