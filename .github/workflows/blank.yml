@@ -53,7 +53,8 @@ jobs:
           path: k6_report.html
       - name: Jod Summery 
         run: |
-          echo "## Reporting :rocket" >> "${GITHUB_STEP_SUMMARY}"
-          echo "-- First Line" >> "${GITHUB_STEP_SUMMARY}"
-          echo "-- Second Line" >> "${GITHUB_STEP_SUMMARY}"
-          
+          echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY          
+          echo "## Reporting :rocket:" >> $GITHUB_STEP_SUMMARY
+          echo "-- First Line" >> $GITHUB_STEP_SUMMARY
+          echo "-- Second Line" >> $GITHUB_STEP_SUMMARY
+          echo "# Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY          
