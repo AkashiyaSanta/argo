@@ -60,10 +60,9 @@ jobs:
 
       - name: Deploy to GitHub Pages
         uses: actions/upload-pages-artifact@v1
-        with:
           path: public
 
       - name: Publish to GitHub Pages
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v2
           
           
