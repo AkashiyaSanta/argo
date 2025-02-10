@@ -58,9 +58,8 @@ jobs:
           echo "<html><body><h1>K6 Test Report</h1><p>Total Requests: 100</p><p>Failed Requests: 2</p></body></html>" > public/index.html
 
       - name: Deploy to GitHub Pages
-        uses: actions/upload-pages-artifact@v3
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          path: public
-
-      - name: Publish to GitHub Pages
-        uses: actions/deploy-pages@v3
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./  # プッシュするディレクトリ（ルートディレクトリ）
+        
