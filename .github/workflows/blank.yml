@@ -56,6 +56,11 @@ jobs:
         run: |
           mkdir -p public
           echo "<html><body><h1>K6 Test Report</h1><p>Total Requests: 100</p><p>Failed Requests: 2</p></body></html>" > public/index.html
+      - name: Set up Git
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git remote add origin https://github.com/${{ github.repository }}.git  # originリモートを追加
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
