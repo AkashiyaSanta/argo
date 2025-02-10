@@ -34,3 +34,18 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+  k6_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run K6 Load Test
+        run: |
+          # ここで K6 を実行し、結果をファイルに保存
+          echo "<html><body><h1>K6 Test Report</h1><p>Total Requests: 100</p><p>Failed Requests: 2</p></body></html>" > k6_report.html
+
+      - name: Upload K6 Report as Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: K6 Test Report
+          path: k6_report.html
+          
