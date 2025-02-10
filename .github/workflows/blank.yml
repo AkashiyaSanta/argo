@@ -48,4 +48,22 @@ jobs:
         with:
           name: K6 Test Report
           path: k6_report.html
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Download K6 Report Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: K6-Test-Report
+          path: public  # GitHub Pages 用のフォルダ
+
+      - name: Deploy to GitHub Pages
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: public
+
+      - name: Publish to GitHub Pages
+        uses: actions/deploy-pages@v1
+          
           
